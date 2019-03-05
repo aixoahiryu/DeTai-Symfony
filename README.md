@@ -1,1 +1,0 @@
-# DeTai-Symfony
