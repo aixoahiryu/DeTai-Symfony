@@ -1,13 +1,13 @@
 # DeTai-Symfony
 
-1. C‡i XAMPP
+1. C√†i XAMPP
 ![Imgur](https://i.imgur.com/LVPbmIW.png)
 
-2. C‡i Git
+2. C√†i Git
 ![Imgur](https://i.imgur.com/ktalUEZ.png)
 
-3. C‡i Composer
+3. C√†i Composer
 ![Imgur](https://i.imgur.com/ONmnREo.png)
 
-Ti?p theo c‡i framework theo link h˝?ng d?n, nh˝ng trong repo n‡y l‡m s?n r?i. ch? c?n git clone v?, sau Û cd v‡o th˝ m?c Symfonews ch?y l?nh composer install
+Ti·∫øp theo c√†i framework theo link h∆∞·ªõng d·∫´n, nh∆∞ng trong repo n√†y l√†m s·∫µn r·ªìi. ch·ªâ c·∫ßn git clone v·ªÅ, sau ƒë√≥ cd v√†o th∆∞ m·ª•c Symfonews ch·∫°y l·ªánh composer install
 [https://auth0.com/blog/symfony-tutorial-building-a-blog-part-1/](https://auth0.com/blog/symfony-tutorial-building-a-blog-part-1/)
