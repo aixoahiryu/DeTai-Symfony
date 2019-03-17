@@ -6,6 +6,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\HttpFoundation\Request;
+
 class BlogController extends AbstractController
 {
 	/** @var EntityManagerInterface */
@@ -16,6 +18,9 @@ class BlogController extends AbstractController
 
 	/** @var \Doctrine\Common\Persistence\ObjectRepository */
 	private $blogPostRepository;
+
+	/** @var integer */
+	const POST_LIMIT = 5;
 
 	/**
 	 * @param EntityManagerInterface $entityManager
@@ -31,10 +36,19 @@ class BlogController extends AbstractController
 	 * @Route("/", name="homepage")
 	 * @Route("/entries", name="entries")
 	 */
-	public function entriesAction()
+	public function entriesAction(Request $request)
 	{
+		$page = 1;
+
+		if ($request->get('page')) {
+		    $page = $request->get('page');
+		}
+
 	    return $this->render('blog/entries.html.twig', [
-	        'blogPosts' => $this->blogPostRepository->findAll()
-	    ]);
+			'blogPosts' => $this->blogPostRepository->getAllPosts($page, self::POST_LIMIT),
+			'totalBlogPosts' => $this->blogPostRepository->getPostCount(),
+			'page' => $page,
+			'entryLimit' => self::POST_LIMIT
+		]);
 	}
 }

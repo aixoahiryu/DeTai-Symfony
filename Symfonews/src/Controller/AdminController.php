@@ -103,6 +103,32 @@ class AdminController extends AbstractController
 	        'blogPosts' => $blogPosts
 	    ]);
 	}
+
+	/**
+	 * @Route("/delete-entry/{entryId}", name="admin_delete_entry")
+	 *
+	 * @param $entryId
+	 *
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 */
+	public function deleteEntryAction($entryId)
+	{
+	    $blogPost = $this->blogPostRepository->findOneById($entryId);
+	    $author = $this->authorRepository->findOneByUsername($this->getUser()->getUserName());
+
+	    if (!$blogPost || $author !== $blogPost->getAuthor()) {
+	        $this->addFlash('error', 'Unable to remove entry!');
+
+	        return $this->redirectToRoute('admin_entries');
+	    }
+
+	    $this->entityManager->remove($blogPost);
+	    $this->entityManager->flush();
+
+	    $this->addFlash('success', 'Entry was deleted!');
+
+	    return $this->redirectToRoute('admin_entries');
+	}
 	
 	/** @var EntityManagerInterface */
 	private $entityManager;
