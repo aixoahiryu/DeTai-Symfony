@@ -12,9 +12,7 @@ use App\Form\AuthorFormType;
 use App\Entity\BlogPost;
 use App\Form\EntryFormType;
 
-/**
- * @Route("/admin")
- */
+
 class AdminController extends AbstractController
 {
 
@@ -84,8 +82,8 @@ class AdminController extends AbstractController
 	}
 
 	/**
-	 * @Route("/", name="admin_index")
-	 * @Route("/entries", name="admin_entries")
+	 * @Route("/admin", name="admin_index")
+	 * @Route("/admin/entries", name="admin_entries")
 	 *
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */

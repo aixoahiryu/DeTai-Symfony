@@ -10,7 +10,7 @@ hwi_oauth:
             scope: "openid profile"
     http:
         client: httplug.client.hwi_special # Then you specify the special service to use.
-        
+
 httplug:
     clients:
         default:
