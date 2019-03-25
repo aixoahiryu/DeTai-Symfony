@@ -85,4 +85,12 @@ class BlogController extends AbstractController
 	        'author' => $author
 	    ]);
 	}
+
+	/**
+	 * @Route("/about", name="about")
+	 */
+	public function aboutAction()
+	{
+	    return $this->render('about.html.twig');
+	}
 }
